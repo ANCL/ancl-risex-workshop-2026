@@ -88,8 +88,8 @@ p { margin: 0; }
 .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: -5.0rem; }
 .demos figure { margin: 0; text-align: center; }
 .demos h2 { margin-bottom: 1rem; font-size: 1.5rem; }
-.media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--banner); border: 1px solid var(--line); border-radius: var(--radius); }
-.media img { width: 100%; height: 100%; object-fit: cover; }
+.media { aspect-ratio: 16 / 10; overflow: hidden; background: rgba(255, 255, 255, 0.0); border: 1px solid var(--line); border-radius: var(--radius); }
+.media img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px;}
 .demos figcaption { margin-top: .75rem; font-size: .9rem; }
 
 /* ---------- Action cards ---------- */
@@ -198,6 +198,16 @@ body.about-page { background: var(--bg); }
 .outcomes { columns: 2; column-gap: 3rem; }
 .outcomes li { break-inside: avoid; }
 .poster h2.sub { margin-bottom: 1rem; font-size: 1.6rem; }
+
+.headshot {
+  width: 150px;
+  height: 150px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px; /* border radius for rounded corners */
+  margin: 0.75rem 0;
+  display: block;
+}
 
 @media (max-width: 760px) {
   .banner-inner { flex-direction: column; align-items: center; margin-top: -25px; padding-bottom: 90px; }
