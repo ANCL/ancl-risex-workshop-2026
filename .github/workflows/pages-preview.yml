@@ -58,7 +58,11 @@ jobs:
 
       - name: Prepare preview files
         if: github.event_name == 'pull_request' && github.event.action != 'closed'
-        run: python scripts/package_site.py preview-source build/preview
+        env:
+          PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python scripts/package_site.py preview-source build/preview
+          printf '%s\n' "$PREVIEW_COMMIT" > build/preview/preview-commit.txt
 
       - name: Publish main at the original URL
         if: github.event.action != 'closed'

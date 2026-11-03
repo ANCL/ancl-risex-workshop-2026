@@ -13,6 +13,8 @@ Compare the existing live site with the proposed changes in [PR #8](https://gith
 
 The **Publish site and PR previews** workflow updates the preview whenever the PR changes. Open the PR's deployment panel, or its successful workflow run's summary, for the preview link. Preview links become available after the GitHub Pages deployment completes and are removed when the PR closes.
 
+Each preview includes `preview-commit.txt` identifying the PR commit being served, so reviewers can confirm they are viewing the latest revision.
+
 ## GitHub Pages publishing
 
 `.github/workflows/pages-preview.yml` keeps the public site from `main` at the root of a generated `gh-pages` branch and each same-repository PR at `pr-preview/pr-N/`. It copies static HTML, CSS, JavaScript and assets without installing or running the website. The packaging tests reject symlinks and exclude repository metadata. Fork PRs do not receive publishing permissions. The workflow uses GitHub's built-in token; no personal access token or external hosting is needed.
