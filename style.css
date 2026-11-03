@@ -1,6 +1,6 @@
 /* Shared foundations. No build step or JavaScript is required. */
 * { box-sizing:border-box; }
-html { color-scheme:light; }
+html { color-scheme:light; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 body { margin:0; background:#fff; }
 main { display:block; }
 a:focus-visible { outline:3px solid #b37b00; outline-offset:4px; border-radius:2px; }
@@ -103,6 +103,7 @@ a:focus-visible { outline:3px solid #b37b00; outline-offset:4px; border-radius:2
 #about-page li { padding-left:3px; margin:7px 0; }
 #about-page li::marker { color:var(--workshop-green); }
 #about-page .reading { display:flex; flex-wrap:wrap; column-gap:18px; row-gap:8px; margin-top:14px; font-size:14px; }
+#about-page .reading a { display:inline-flex; align-items:center; min-height:44px; padding-block:8px; }
 #about-page .systems { margin-top:36px; padding:25px 28px; background:#edf4ef; border-left:4px solid var(--workshop-green); }
 #about-page .system-columns { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:18px; }
 #about-page .system-columns h3 { font-size:18px; color:var(--workshop-green); }
@@ -135,7 +136,7 @@ a:focus-visible { outline:3px solid #b37b00; outline-offset:4px; border-radius:2
 :is(#home-page,#about-page) .lab-name { display:block; font-size:15px; line-height:1.4; font-weight:500; }
 :is(#home-page,#about-page) .lab-university { display:block; color:#40594c; font-size:12px; font-weight:400; margin-top:5px; }
 :is(#home-page,#about-page) .lab-header nav { display:flex; flex-wrap:wrap; gap:22px; font-size:15px; font-weight:500; }
-:is(#home-page,#about-page) .lab-header nav a { color:#006542; text-decoration:none; display:inline-flex; align-items:center; min-height:40px; }
+:is(#home-page,#about-page) .lab-header nav a { color:#006542; text-decoration:none; display:inline-flex; align-items:center; min-height:44px; }
 #about-page { padding-top:0; font-size:18px; line-height:1.65; }
 #about-page .hero { margin-top:38px; padding-bottom:30px; }
 #about-page h1 { font-size:clamp(30px,4.6vw,48px); }
@@ -154,18 +155,67 @@ a:focus-visible { outline:3px solid #b37b00; outline-offset:4px; border-radius:2
 #about-page .register { font-size:16px; }
 #home-page .person .bio { max-width:none; width:100%; text-align:justify; text-justify:inter-word; }
 @media(max-width:620px) {
- :is(#home-page,#about-page) .lab-header { gap:12px; padding:20px 0 14px; }
- :is(#home-page,#about-page) .lab-brand { align-items:flex-start; flex-direction:column; gap:8px; }
- :is(#home-page,#about-page) .lab-mark { width:190px; height:63px; }
- :is(#home-page,#about-page) .lab-mark img { width:242px; left:-25px; top:-37px; }
- :is(#home-page,#about-page) .lab-name { font-size:13px; }
- :is(#home-page,#about-page) .lab-header nav { width:100%; font-size:14px; }
+ :is(#home-page,#about-page) { padding-inline:20px; }
+ :is(#home-page,#about-page) .lab-header { gap:8px; padding:14px 0 10px; }
+ :is(#home-page,#about-page) .lab-brand { gap:0; }
+ :is(#home-page,#about-page) .lab-mark { width:154px; height:52px; }
+ :is(#home-page,#about-page) .lab-mark img { width:196px; left:-20px; top:-30px; }
+ :is(#home-page,#about-page) .lab-name { display:none; }
+ :is(#home-page,#about-page) .lab-header nav { width:100%; gap:8px; font-size:14px; }
+ :is(#home-page,#about-page) .lab-header nav a { min-height:44px; padding:8px 14px; border-radius:4px; }
+ :is(#home-page,#about-page) .lab-header nav a[aria-current="page"] { background:#edf4ef; }
+ :is(#home-page,#about-page) h1 { font-size:clamp(30px,7.8vw,40px); text-wrap:balance; white-space:normal; }
+ :is(#home-page,#about-page) h2 { text-wrap:balance; }
+ :is(#home-page,#about-page) .hero { text-align:left; }
+ #home-page .hero { padding:28px 0; }
+ #home-page .eyebrow { font-size:11px; letter-spacing:.09em; }
+ #home-page .lede { margin-top:16px; }
+ #home-page .hero-actions { display:grid; grid-template-columns:1fr; gap:10px; margin-top:22px; }
+ #home-page .primary,#home-page .secondary { min-height:48px; font-size:16px; padding-inline:12px; }
+ #home-page .event-facts { padding:18px; gap:16px; margin-bottom:28px; }
+ #home-page .event-facts .fact + .fact { border-top:1px solid var(--home-line); padding-top:16px; }
+ #home-page .fact p,#home-page .demos p,#home-page .stages p,#home-page .contact p { font-size:16px; }
+ #home-page .fact a { display:inline-flex; align-items:center; min-height:44px; }
+ #home-page .programme-top a { display:inline-flex; align-items:center; min-height:44px; font-size:16px; }
+ #home-page .stages { gap:20px; }
+ #home-page .stage-title { gap:12px; }
+ #home-page .stages p { margin-left:32px; }
+ #home-page .person > div:first-child { display:grid; grid-template-columns:88px minmax(0,1fr); gap:4px 16px; align-content:center; }
+ #home-page .person h3 { grid-column:2; align-self:end; }
+ #home-page .person .rank { grid-column:2; margin-top:0; }
+ #home-page .person .headshot { grid-column:1; grid-row:1 / span 2; width:88px!important; height:88px!important; margin:0!important; }
+ #home-page .person .bio { text-align:left; font-size:17px; line-height:1.7; }
+ #home-page .contact { padding:20px 18px; }
+ #home-page .contact a { display:inline-flex; align-items:center; min-height:44px; overflow-wrap:anywhere; }
+ #home-page footer a { display:inline-flex; align-items:center; min-height:44px; font-size:14px; }
  #about-page { font-size:18px; }
  #about-page .agenda-row { grid-template-columns:1fr; gap:18px; }
  #about-page h2 { font-size:26px; }
- #about-page .hero { margin-top:30px; }
+ #about-page .hero { margin-top:28px; padding-bottom:28px; }
+ #about-page .subtitle { font-size:18px; }
+ #about-page .facts { gap:4px; flex-direction:column; margin-top:18px; }
+ #about-page .agenda { margin-top:28px; }
+ #about-page .step-title { grid-template-columns:30px 1fr; }
+ #about-page .step-title > div { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:4px 12px; }
+ #about-page .step-meta { margin-top:0; white-space:nowrap; }
+ #about-page .reading { flex-direction:column; align-items:stretch; gap:8px; }
+ #about-page .reading a { min-height:48px; padding:10px 12px; border:1px solid #c5d4cc; border-radius:5px; line-height:1.5; }
  #about-page .system-columns { gap:22px; }
- #home-page .person .bio { text-align:left; }
+ #about-page .systems,#about-page .join { padding:22px 18px; }
+ #about-page .join { gap:18px; }
+ #about-page .join .register { width:100%; text-align:center; min-height:48px; }
+ #about-page .hero-actions .register { width:100%; }
 }
 
 :is(#home-page,#about-page) .lab-header nav a[aria-current="page"] { text-decoration:underline; text-underline-offset:6px; }
+#about-page .hero-actions { margin-top:22px; }
+#about-page .hero-actions .register { display:inline-flex; align-items:center; justify-content:center; min-height:48px; background:#006542; color:#fff; }
+#about-page .hero-actions .register:hover { background:#004c33; }
+:is(#home-page,#about-page) :is(p,a,h2,h3) { overflow-wrap:break-word; }
+@media (min-width:621px) and (max-width:900px) {
+ :is(#home-page,#about-page) .lab-header { gap:12px; }
+ :is(#home-page,#about-page) .lab-header nav a { min-height:44px; }
+ #home-page .stages { gap:18px; }
+ #home-page .person { grid-template-columns:150px minmax(0,1fr); gap:24px; }
+ #about-page .agenda-row { grid-template-columns:160px minmax(0,1fr); gap:22px; }
+}
