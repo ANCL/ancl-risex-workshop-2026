@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About the Workshop | PX4 + ROS 2 Drone Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class = "about-page">
+
+<header class="banner">
+  <div class="wrap"><a class="back" href="index.html">Back to workshop page</a></div>
+</header>
+
+<main class="wrap poster" text_color>
+  <h1>PX4 + ROS 2 Drone Control</h1>
+  <p class="lede">A short talk, a guided simulation, and a real flight. Learn the basics of offboard drone control with <a href="https://px4.io/">PX4</a> and <a href="https://www.ros.org/">ROS 2</a>.</p>
+
+  <hr>
+
+  <section class="parts">
+    <div class="part">
+      <span class="num">1</span>
+      <h2>Presentation</h2>
+      <p class="meta">40 minutes</p>
+      <ul>
+        <li>PX4 ecosystem and flight modes</li>
+        <li>ROS 2 nodes, topics, and timing</li>
+        <li>Coordinate frames</li>
+        <li>Structure of an outer-loop controller</li>
+      </ul>
+    </div>
+    <div class="part">
+      <span class="num">2</span>
+      <h2>Simulation</h2>
+      <p class="meta">Hands-on</p>
+      <ul>
+        <li>Read vehicle position and velocity</li>
+        <li>Generate a waypoint, square, or circle</li>
+        <li>Write a position controller that sends acceleration commands</li>
+        <li>Run it in Offboard mode</li>
+      </ul>
+    </div>
+    <div class="part">
+      <span class="num">3</span>
+      <h2>Real flight</h2>
+      <p class="meta">Hands-on</p>
+      <ul>
+        <li>Meet the hardware</li>
+        <li>Watch the switch to Offboard mode</li>
+        <li>Run a verified controller</li>
+        <li>Observe hover, waypoints, or a short trajectory</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ============ ROS 2 & PX4 OVERVIEW ============ -->
+  <section class="overview" style="margin-top: 2rem;">
+    <h2 class="sub">What are ROS 2 and PX4?</h2>
+    <ul style="list-style-type:disc;">
+      <li><strong>ROS 2</strong> (Robot Operating System 2) is an open-source robotics middleware framework that manages node communication, high-level path planning, and controller execution. </li>
+      <li><strong>PX4</strong> is an open-source flight control autopilot software stack running on the hardware that handles low-level stabilization, state estimation, and sensor integration. </li>
+      <li><strong>Together</strong>, ROS 2 acts as the high-level brain sending offboard trajectory targets, while PX4 safely executes real-time flight dynamics.
+      In this workshop, you will learn how to use these two systems together to command a drone in simulation and in real life.</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2 class="sub">By the end, you will be able to</h2>
+    <ul class="outcomes">
+      <li>Describe the PX4 flight-control architecture</li>
+      <li>Identify common PX4 flight modes</li>
+      <li>Explain how ROS 2 communicates with PX4</li>
+      <li>Read vehicle state through ROS 2</li>
+      <li>Generate simple trajectory references</li>
+      <li>Implement a basic outer-loop controller</li>
+      <li>Test an offboard controller in SITL and on a real vehicle</li>
+    </ul>
+  </section>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PX4 + ROS 2 Drone Control | RISEx Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ BANNER ============ -->
+<header class="banner">
+  <div class="logo-ribbon">
+    <div class="wrap logo-ribbon-inner">
+      <img src="assets/ANCL_logo.gif"
+           alt="ANCL Logo"
+           class="ribbon-logo">
+    </div>
+  </div>
+
+  <div class="wrap banner-inner">
+
+    <div>
+      <p class="kicker">RISEx Workshop</p>
+      <h1>PX4 + ROS 2 Drone Control</h1>
+      <p class="lede">Learn how to command a real drone from code using PX4 and ROS2.
+        Build a controller, test it in simulation, then watch it fly in real life!
+      </p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ SIMULATION / EXPERIMENT GIFS ============ -->
+  <section class="demos">
+    <figure>
+      <div class="media"><img src="assets/simulation.gif" alt="PX4 SITL simulation"></div>
+      <figcaption>Software-in-the-loop (SITL) simulation of a drone flying a circular trajectory 
+        using the Gazebo robotics simulator.
+      </figcaption>
+    </figure>
+    <figure>
+      <div class="media"><img src="assets/experiment.gif" alt="Real drone flight"></div>
+      <figcaption>Real life experiment of a drone flying a circular trajectory in the lab.</figcaption>
+    </figure>
+  </section>
+
+  <hr>
+
+  <!-- ============ BUTTONS ============ -->
+  <section class="actions">
+    <div class="card">
+      <a class="btn" href="https://conference.albertarobotics.ca/registration/">Register</a>
+      <p>Reserve your seat now. Spaces are limited.</p>
+      <dl class="when">
+        <dt>When</dt><dd>November 12, 2026, 15:30 to 17:00</dd>
+        <dt>Where</dt><dd>ECERF W6-006, University of Alberta (<a href="https://maps.app.goo.gl/ZKnCwWi2fNKg6QhK7">map</a>)</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <a class="btn" href="about.html">About Workshop</a>
+      <p>Learn more about what is going on in the workshop.</p>
+      <dl class="when">
+        <dt>Highlights</dt>
+        <dd>1. ROS 2 & PX4 Architecture</dd>
+        <dd>2. Gazebo SITL Simulation</dd>
+        <dd class="flight-highlight">3. Live Drone Flight</dd>
+      </dl>
+    </div>
+
+    <div class="card contact-card">
+      <button class="btn" id="contact-btn" type="button" aria-expanded="false" aria-controls="contact-panel">Contact</button>
+      <p>Questions? Find the lab’s details here.</p>
+    </div>
+  </section>
+
+  <!-- Revealed by the Contact button -->
+  <div id="contact-panel" class="popup-overlay" hidden>
+    <div class="popup-card">
+      <button type="button" class="close-btn" id="close-btn" aria-label="Close contact details">&times;</button>
+      <h2>Contact Us</h2>
+      <dl class="when">
+        <h3>Email</h3>
+      <p><a href="mailto:alan.lynch@ualberta.ca">alan.lynch@ualberta.ca</a></p>
+      <h3>Office phone</h3>
+      <p><a href="tel:+17804925147">+1 (780) 492-5147</a></p>
+      <h3>Location</h3>
+      <p>
+        Room W4-050<br>
+        ECERF Building (<a href="https://maps.app.goo.gl/ZKnCwWi2fNKg6QhK7">map</a>)<br>
+        9107-116 Street NW<br>
+        University of Alberta<br>
+        Edmonton, Alberta
+      </p>
+      <h3>Mailing address</h3>
+      <p>
+        Professor A. F. Lynch<br>
+        Donadeo Innovation Centre for Engineering<br>
+        9211-116 Street NW<br>
+        Edmonton, Alberta<br>
+        Canada T6G 1H9
+      </p>
+      </dl>      
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============ ABOUT US ============ -->
+  <section>
+    <h2 class="section-title">About Us</h2>
+
+    <article class="person">
+      <div>
+        <h3>Alan Lynch</h3>
+        <p class="rank">Professor</p>
+        <img src="assets/alan_lynch_headshot.png" alt="Alan Lynch headshot" class="headshot" style="width: 150px; height: 150px; aspect-ratio: 1 / 1; object-fit: cover; margin: 0.5rem 0;">
+      </div>
+      <div>
+        <h4>Lead Organizer</h4>
+        <p class="bio">
+          Alan F. Lynch received his Ph.D. in Electrical and Computer Engineering from the 
+          University of Toronto in 1999. From 1999 to 2001, he was a postdoctoral researcher at the 
+          Institut fuer Regelungs und Steuerungstheorie at TU Dresden. He joined the Department of Electrical 
+          and Computer Engineering at the University of Alberta in 2001, where he is a Professor. From 2009 to 
+          2010, he was a Humboldt Research Fellow at the Institut fuer Systemtheorie und Regelungstechnik (IST),
+          Universitaet Stuttgart. In 2017, he was a visiting professor at the Lehrstuhl fuer Systemtheorie und 
+          Regelungstechnik (LSR), Universitaet des Saarlandes. His research interests include nonlinear control 
+          and estimation, with applications to electrical, electromechanical, and robotic systems. Since about 
+          2010, he has worked on control and estimation problems for helicopter and multirotor drones. 
+          His current research emphasizes aerial manipulation, extending the capabilities of drones to interact 
+          physically with their surroundings. His work includes the development of a fully actuated tilt-rotor 
+          aerial manipulator, combining drone flight with robotic manipulation.
+        </p>
+      </div>
+    </article>
+
+    <article class="person">
+      <div>
+        <h3>Mohssen Elshaar</h3>
+        <p class="rank">Ph.D. Student</p>
+        <img src="assets/mohssen_elshaar_headshot.png" alt="Mohssen Elshaar headshot" class="headshot" style="width: 150px; height: 150px; aspect-ratio: 1 / 1; object-fit: cover; margin: 0.5rem 0;">
+      </div>
+      <div>
+        <h4>Presenter</h4>
+        <p class="bio">
+          Mohssen E. Elshaar is currently pursuing his Ph.D. in Electrical and Computer Engineering at the 
+          University of Alberta, Canada, where he is a Graduate Research Assistant at the Applied Nonlinear 
+          Control Laboratory (ANCL). He received his B.Sc. in Aerospace Engineering from Zewail University of 
+          Science and Technology, Egypt, in 2022, and his M.Sc. in Aerospace Engineering from King Fahd 
+          University of Petroleum and Minerals (KFUPM), Saudi Arabia, in 2025. From 2023 to 2025, he was a 
+          Research Assistant at the Aviation and Space Exploration Center at KFUPM, where his work focused on 
+          UAV dynamics, system identification, and propeller fault diagnosis. His research interests include 
+          nonlinear control, dynamics, navigation, optimization, and autonomous robotic systems, with particular 
+          emphasis on multirotor UAVs. His current research focuses on the design optimization, modeling, 
+          and control of fully actuated multirotors, with applications in aerial manipulation.
+        </p>
+      </div>
+    </article>
+
+    <article class="person">
+      <div>
+        <h3>Dion Walton</h3>
+        <p class="rank">Undergraduate Student</p>
+        <img src="assets/dion_walton_headshot.jpeg" alt="Dion Walton headshot" class="headshot" style="width: 150px; height: 150px; aspect-ratio: 1 / 1; object-fit: cover; margin: 0.5rem 0;">
+      </div>
+      <div>
+        <h4>Presenter</h4>
+        <p class="bio">
+          Dion Walton is an undergraduate student at the University of Alberta currently pursuing a BSc in 
+          Computer Engineering. Since May 2026, he has worked at ANCL as a robotics engineer and lab technician, 
+          aiding in development and experiments for the motion and force control of a fully actuated hexarotor, 
+          as well as the motion control of a quadrotor with an off-center slung load. During this time, 
+          he has gained extensive experience using ROS2 and PX4 for drone control, simulation, and experimental 
+          design. His current interests include embedded control and the ethical application of 
+          intelligent systems for drones.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <footer class="wrap" style="padding:3rem 1.5rem;text-align:center;font-size:.85rem">
+    RISEx Workshop. Applied Nonlinear Control Lab (ANCL), University of Alberta.
+  </footer>
+</main>
+
+<script>
+  const btn = document.getElementById('contact-btn');
+  const panel = document.getElementById('contact-panel');
+  const closeBtn = document.getElementById('close-btn');
+
+  function togglePanel(show) {
+    const isOpen = show !== undefined ? show : panel.hidden;
+    panel.hidden = !isOpen;
+    btn.setAttribute('aria-expanded', isOpen);
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    togglePanel();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => togglePanel(false));
+  }
+
+  // Close when clicking the backdrop overlay area outside the card
+  panel.addEventListener('click', (e) => {
+    if (e.target === panel) {
+      togglePanel(false);
+    }
+  });
+
+  // Close on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !panel.hidden) {
+      togglePanel(false);
+      btn.focus();
+    }
+  });
+
+  // hide broken image icons until files are added
+  document.querySelectorAll('img').forEach(i => i.addEventListener('error', () => i.style.visibility = 'hidden'));
+</script>
+</body>
+</html>
