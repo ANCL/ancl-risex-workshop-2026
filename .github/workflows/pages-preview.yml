@@ -1,0 +1,92 @@
+name: Publish site and PR previews
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize, closed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# All jobs write to the same publishing branch. Never cancel an active deployment.
+concurrency:
+  group: workshop-pages
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pages: read
+    environment:
+      name: ${{ github.event_name == 'pull_request' && format('pr-preview-{0}', github.event.number) || 'site-publication' }}
+      url: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' && format('https://ancl.github.io/ancl-risex-workshop-2026/pr-preview/pr-{0}/', github.event.number) || 'https://ancl.github.io/ancl-risex-workshop-2026/' }}
+    steps:
+      - name: Check out workflow and packaging script
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Check out current live source
+        if: github.event.action != 'closed'
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+          path: live-source
+          persist-credentials: false
+
+      - name: Check out the exact PR version
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: preview-source
+          persist-credentials: false
+
+      - name: Test packaging and prepare live files
+        if: github.event.action != 'closed'
+        run: |
+          python -m unittest discover -s tests -v
+          python scripts/package_site.py live-source build/live
+
+      - name: Prepare preview files
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        run: python scripts/package_site.py preview-source build/preview
+
+      - name: Publish main at the original URL
+        if: github.event.action != 'closed'
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4
+        with:
+          branch: gh-pages
+          folder: build/live
+          clean-exclude: pr-preview/
+          force: false
+
+      - name: Publish or remove this PR preview
+        if: github.event_name == 'pull_request'
+        uses: rossjrw/pr-preview-action@873417d2df72380da1f3978378fb58560bcde976 # v1
+        with:
+          source-dir: build/preview
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          pages-base-url: ancl.github.io/ancl-risex-workshop-2026
+          comment: false
+          qr-code: false
+          wait-for-pages-deployment: true
+
+      - name: Add review links to workflow summary
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          printf '### Website review\n\n' >> "$GITHUB_STEP_SUMMARY"
+          printf -- '- [Original site](https://ancl.github.io/ancl-risex-workshop-2026/)\n' >> "$GITHUB_STEP_SUMMARY"
+          printf -- '- [Preview Home](https://ancl.github.io/ancl-risex-workshop-2026/pr-preview/pr-%s/)\n' "$PR_NUMBER" >> "$GITHUB_STEP_SUMMARY"
+          printf -- '- [Preview About](https://ancl.github.io/ancl-risex-workshop-2026/pr-preview/pr-%s/about.html)\n' "$PR_NUMBER" >> "$GITHUB_STEP_SUMMARY"

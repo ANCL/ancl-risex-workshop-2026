@@ -8,10 +8,18 @@ Compare the existing live site with the proposed changes in [PR #8](https://gith
 
 | Page | Original live site | PR branch preview |
 | --- | --- | --- |
-| Home | [Original Home](https://ancl.github.io/ancl-risex-workshop-2026/) | [Preview Home](https://raw.githack.com/ANCL/ancl-risex-workshop-2026/codex/website-content-refresh/index.html) |
-| About | [Original About](https://ancl.github.io/ancl-risex-workshop-2026/about.html) | [Preview About](https://raw.githack.com/ANCL/ancl-risex-workshop-2026/codex/website-content-refresh/about.html) |
+| Home | [Original Home](https://ancl.github.io/ancl-risex-workshop-2026/) | [Preview Home](https://ancl.github.io/ancl-risex-workshop-2026/pr-preview/pr-8/) |
+| About | [Original About](https://ancl.github.io/ancl-risex-workshop-2026/about.html) | [Preview About](https://ancl.github.io/ancl-risex-workshop-2026/pr-preview/pr-8/about.html) |
 
-The preview is served by the third-party raw.githack service from the public PR branch. On your first visit, select **Open the page** on its source-confirmation screen. Branch updates normally appear within minutes, though caching may take longer. These are review links, not GitHub Pages deployments; the original live site is unaffected. The preview requires the branch to remain available.
+The **Publish site and PR previews** workflow updates the preview whenever the PR changes. Open the PR's deployment panel, or its successful workflow run's summary, for the preview link. Preview links become available after the GitHub Pages deployment completes and are removed when the PR closes.
+
+## GitHub Pages publishing
+
+`.github/workflows/pages-preview.yml` keeps the public site from `main` at the root of a generated `gh-pages` branch and each same-repository PR at `pr-preview/pr-N/`. It copies static HTML, CSS, JavaScript and assets without installing or running the website. The packaging tests reject symlinks and exclude repository metadata. Fork PRs do not receive publishing permissions. The workflow uses GitHub's built-in token; no personal access token or external hosting is needed.
+
+One-time setup: after the workflow creates `gh-pages`, open **Settings → Pages → Build and deployment**, choose **Deploy from a branch**, and select **gh-pages / (root)**. Keep the source set to branch publishing, not the similarly named GitHub Actions option. Workflow permissions are declared in the job; repository-wide default write permissions are unnecessary.
+
+The PR workflow also refreshes the live root from `main`, preserving open previews. After this workflow merges, pushes to `main` refresh the live root automatically. Until then, a change to `main` alone will not refresh `gh-pages`; rerun the PR workflow to refresh it. To roll back this publishing setup, select **main / (root)** in Pages settings. Source changes stay on their normal branches; `gh-pages` contains only generated publishing files.
 
 ## Local preview
 
