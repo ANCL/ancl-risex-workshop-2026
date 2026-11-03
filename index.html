@@ -1,125 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Join ANCL at the University of Alberta for a 90-minute workshop on PX4 and ROS 2, with a presentation, guided simulation, and real drone flight.">
   <title>PX4 + ROS 2 Drone Control | RISEx Workshop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- ============ BANNER ============ -->
-<header class="banner">
-  <div class="logo-ribbon">
-    <div class="wrap logo-ribbon-inner">
-      <img src="assets/ANCL_logo.gif"
-           alt="ANCL Logo"
-           class="ribbon-logo">
-    </div>
-  </div>
-
-  <div class="wrap banner-inner">
-
-    <div>
-      <p class="kicker">RISEx Workshop</p>
-      <h1>PX4 + ROS 2 Drone Control</h1>
-      <p class="lede">Learn how to command a real drone from code using PX4 and ROS2.
-        Build a controller, test it in simulation, then watch it fly in real life!
-      </p>
-    </div>
-  </div>
+<div id="home-page">
+ <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="lab-header">
+ <a class="lab-brand" href="index.html" aria-label="ANCL workshop home">
+  <span class="lab-mark"><img width="800" height="450" src="assets/ANCL_logo.png" alt="ANCL"></span>
+  <span class="lab-name">Applied Nonlinear<br>Control Laboratory<span class="lab-university">University of Alberta</span></span>
+ </a>
+ <nav aria-label="Workshop navigation"><a href="index.html" aria-current="page">Home</a><a href="about.html">About workshop</a></nav>
 </header>
+<main id="main-content">
 
-<main class="wrap">
-
-  <!-- ============ SIMULATION / EXPERIMENT GIFS ============ -->
-  <section class="demos">
-    <figure>
-      <div class="media"><img src="assets/simulation.gif" alt="PX4 SITL simulation"></div>
-      <figcaption>Software-in-the-loop (SITL) simulation of a drone flying a circular trajectory 
-        using the Gazebo robotics simulator.
-      </figcaption>
-    </figure>
-    <figure>
-      <div class="media"><img src="assets/experiment.gif" alt="Real drone flight"></div>
-      <figcaption>Real life experiment of a drone flying a circular trajectory in the lab.</figcaption>
-    </figure>
-  </section>
-
-  <hr>
-
-  <!-- ============ BUTTONS ============ -->
-  <section class="actions">
-    <div class="card">
-      <a class="btn" href="https://conference.albertarobotics.ca/registration/">Register</a>
-      <p>Reserve your seat now. Spaces are limited.</p>
-      <dl class="when">
-        <dt>When</dt><dd>November 12, 2026, 15:30 to 17:00</dd>
-        <dt>Where</dt><dd>ECERF W6-006, University of Alberta (<a href="https://maps.app.goo.gl/ZKnCwWi2fNKg6QhK7">map</a>)</dd>
-      </dl>
-    </div>
-
-    <div class="card">
-      <a class="btn" href="about.html">About Workshop</a>
-      <p>Learn more about what is going on in the workshop.</p>
-      <dl class="when">
-        <dt>Highlights</dt>
-        <dd>1. ROS 2 & PX4 Architecture</dd>
-        <dd>2. Gazebo SITL Simulation</dd>
-        <dd class="flight-highlight">3. Live Drone Flight</dd>
-      </dl>
-    </div>
-
-    <div class="card contact-card">
-      <button class="btn" id="contact-btn" type="button" aria-expanded="false" aria-controls="contact-panel">Contact</button>
-      <p>Questions? Find the lab’s details here.</p>
-    </div>
-  </section>
-
-  <!-- Revealed by the Contact button -->
-  <div id="contact-panel" class="popup-overlay" hidden>
-    <div class="popup-card">
-      <button type="button" class="close-btn" id="close-btn" aria-label="Close contact details">&times;</button>
-      <h2>Contact Us</h2>
-      <dl class="when">
-        <h3>Email</h3>
-      <p><a href="mailto:alan.lynch@ualberta.ca">alan.lynch@ualberta.ca</a></p>
-      <h3>Office phone</h3>
-      <p><a href="tel:+17804925147">+1 (780) 492-5147</a></p>
-      <h3>Location</h3>
-      <p>
-        Room W4-050<br>
-        ECERF Building (<a href="https://maps.app.goo.gl/ZKnCwWi2fNKg6QhK7">map</a>)<br>
-        9107-116 Street NW<br>
-        University of Alberta<br>
-        Edmonton, Alberta
-      </p>
-      <h3>Mailing address</h3>
-      <p>
-        Professor A. F. Lynch<br>
-        Donadeo Innovation Centre for Engineering<br>
-        9211-116 Street NW<br>
-        Edmonton, Alberta<br>
-        Canada T6G 1H9
-      </p>
-      </dl>      
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============ ABOUT US ============ -->
-  <section>
-    <h2 class="section-title">About Us</h2>
-
-    <article class="person">
+ <section class="hero"><p class="eyebrow">RISEx Workshop · University of Alberta</p><h1>PX4 + ROS 2 Drone Control</h1><p class="lede">Learn how to command a real drone from code using PX4 and ROS 2.</p><div class="hero-actions"><a class="primary" href="https://conference.albertarobotics.ca/registration/" target="_blank" rel="noopener">Register for RISEx ↗</a><a class="secondary" href="about.html">About the workshop</a></div></section>
+ <section class="event-facts" aria-label="Workshop date and location"><div class="fact"><div><strong>Thursday, 12 November 2026</strong><p>15:30–17:00 · 90 minutes</p></div></div><div class="fact"><div><strong>ECERF W6-006</strong><p>University of Alberta · <a href="https://maps.app.goo.gl/ZKnCwWi2fNKg6QhK7" target="_blank" rel="noopener">View map ↗</a></p></div></div></section>
+ <section class="demos" aria-label="Simulation and real flight demonstrations"><figure><img width="800" height="399" src="assets/simulation.gif" alt="PX4 SITL simulation of a drone following a circular trajectory"><figcaption><h2>In simulation</h2><p>A circular trajectory in Gazebo using PX4 software-in-the-loop simulation.</p></figcaption></figure><figure><img width="480" height="240" src="assets/experiment.gif" alt="A real drone following a circular trajectory in the lab"><figcaption><h2>In the lab</h2><p>The same type of trajectory, flown by a real drone.</p></figcaption></figure></section>
+ <section class="programme"><div class="programme-top"><h2>What’s in the workshop</h2><a href="about.html">Full programme &amp; resources ↗</a></div><div class="stages"><div><div class="stage-title"><span>01</span><h3>Presentation</h3></div><p>PX4 and ROS 2 architecture, flight modes, and controller fundamentals.</p></div><div><div class="stage-title"><span>02</span><h3>Simulation</h3></div><p>Build a position controller and test a trajectory in Gazebo.</p></div><div><div class="stage-title"><span>03</span><h3>Real flight</h3></div><p>Meet the hardware and see a verified controller in action.</p></div></div></section>
+ <section class="people"><h2>About us</h2><p class="people-intro">Applied Nonlinear Control Laboratory, University of Alberta.</p>
+ <article class="person">
       <div>
         <h3>Alan Lynch</h3>
         <p class="rank">Professor</p>
-        <img src="assets/alan_lynch_headshot.png" alt="Alan Lynch headshot" class="headshot" style="width: 150px; height: 150px; aspect-ratio: 1 / 1; object-fit: cover; margin: 0.5rem 0;">
+        <img src="assets/alan_lynch_headshot.png" alt="Alan Lynch headshot" class="headshot" width="150" height="150" loading="lazy">
       </div>
       <div>
         <h4>Lead Organizer</h4>
@@ -139,12 +51,11 @@
         </p>
       </div>
     </article>
-
-    <article class="person">
+<article class="person">
       <div>
         <h3>Mohssen Elshaar</h3>
         <p class="rank">Ph.D. Student</p>
-        <img src="assets/mohssen_elshaar_headshot.png" alt="Mohssen Elshaar headshot" class="headshot" style="width: 150px; height: 150px; aspect-ratio: 1 / 1; object-fit: cover; margin: 0.5rem 0;">
+        <img src="assets/mohssen_elshaar_headshot.png" alt="Mohssen Elshaar headshot" class="headshot" width="150" height="150" loading="lazy">
       </div>
       <div>
         <h4>Presenter</h4>
@@ -162,12 +73,11 @@
         </p>
       </div>
     </article>
-
-    <article class="person">
+<article class="person">
       <div>
         <h3>Dion Walton</h3>
         <p class="rank">Undergraduate Student</p>
-        <img src="assets/dion_walton_headshot.jpeg" alt="Dion Walton headshot" class="headshot" style="width: 150px; height: 150px; aspect-ratio: 1 / 1; object-fit: cover; margin: 0.5rem 0;">
+        <img src="assets/dion_walton_headshot.jpeg" alt="Dion Walton headshot" class="headshot" width="150" height="150" loading="lazy">
       </div>
       <div>
         <h4>Presenter</h4>
@@ -182,50 +92,10 @@
         </p>
       </div>
     </article>
-  </section>
-
-  <footer class="wrap" style="padding:3rem 1.5rem;text-align:center;font-size:.85rem">
-    RISEx Workshop. Applied Nonlinear Control Lab (ANCL), University of Alberta.
-  </footer>
-</main>
-
-<script>
-  const btn = document.getElementById('contact-btn');
-  const panel = document.getElementById('contact-panel');
-  const closeBtn = document.getElementById('close-btn');
-
-  function togglePanel(show) {
-    const isOpen = show !== undefined ? show : panel.hidden;
-    panel.hidden = !isOpen;
-    btn.setAttribute('aria-expanded', isOpen);
-  }
-
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    togglePanel();
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => togglePanel(false));
-  }
-
-  // Close when clicking the backdrop overlay area outside the card
-  panel.addEventListener('click', (e) => {
-    if (e.target === panel) {
-      togglePanel(false);
-    }
-  });
-
-  // Close on Escape key press
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !panel.hidden) {
-      togglePanel(false);
-      btn.focus();
-    }
-  });
-
-  // hide broken image icons until files are added
-  document.querySelectorAll('img').forEach(i => i.addEventListener('error', () => i.style.visibility = 'hidden'));
-</script>
+ </section>
+ <section id="home-contact" class="contact"><h2>Contact</h2><div class="contact-grid"><div><h3>Questions about the workshop</h3><p><a href="mailto:alan.lynch@ualberta.ca">alan.lynch@ualberta.ca</a><br><a href="tel:+17804925147">+1 (780) 492-5147</a></p><div class="address"><h3>Office</h3><p>Room W4-050, ECERF Building<br>9107-116 Street NW<br>University of Alberta<br>Edmonton, Alberta</p></div></div><div><h3>Mailing address</h3><p>Professor A. F. Lynch<br>Donadeo Innovation Centre for Engineering<br>9211-116 Street NW<br>Edmonton, Alberta<br>Canada T6G 1H9</p></div></div></section>
+ </main>
+<footer><span>RISEx Workshop · ANCL · University of Alberta</span><a href="https://conference.albertarobotics.ca/registration/" target="_blank" rel="noopener">Register for the workshop ↗</a></footer>
+</div>
 </body>
 </html>
