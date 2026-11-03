@@ -93,8 +93,9 @@ p { margin: 0; }
 .demos figcaption { margin-top: .75rem; font-size: .9rem; }
 
 /* ---------- Action cards ---------- */
-.actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .card { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1.75rem 1.5rem; text-align: center; background: var(--banner); border: 1px solid var(--line); border-radius: var(--radius); }
+.card.contact-card { grid-column: 1 / -1; }
 .card p { font-size: .95rem; }
 .btn { display: inline-block; padding: .7rem 1.7rem; border: 0; border-radius: var(--radius); background: var(--accent); color: var(--on-accent); font: 600 1rem var(--font-body); text-decoration: none; cursor: pointer; transition: background .15s; }
 .btn:hover { background: var(--accent-hover); }
@@ -104,7 +105,6 @@ p { margin: 0; }
 .when dd { margin: 0 0 .6rem; }
 
 /* ---------- Pop-up Button ---------- */
-/* Full-screen Backdrop Blur */
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -112,16 +112,15 @@ p { margin: 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(16, 47, 53, 0.65); /* Matches --bg with transparency */
+  background: rgba(16, 47, 53, 0.65);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .popup-overlay[hidden] {
   display: none !important;
 }
 
-/* Card Content */
 .popup-card {
   position: relative;
   width: min(90vw, 420px);
@@ -142,7 +141,6 @@ p { margin: 0; }
   margin-bottom: 0.5rem;
 }
 
-/* Close button matching theme */
 .close-btn {
   position: absolute;
   top: 0.75rem;
@@ -196,26 +194,9 @@ body.about-page { background: var(--bg); }
 .part ul, .outcomes { margin: 1rem 0 0; padding-left: 1.1rem; }
 .part li, .outcomes li { margin-bottom: .45rem; }
 .outcomes { columns: 2; column-gap: 3rem; }
-.outcomes li { break-inside: avoid; }
-.poster h2.sub { margin-bottom: 1rem; font-size: 1.6rem; }
 
-.headshot {
-  width: 150px;
-  height: 150px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 8px; /* border radius for rounded corners */
-  margin: 0.75rem 0;
-  display: block;
+.flight-highlight {
+  color: var(--accent);
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(129, 213, 188, 0.25);
 }
-
-@media (max-width: 760px) {
-  .banner-inner { flex-direction: column; align-items: center; margin-top: -25px; padding-bottom: 90px; }
-  .ribbon-logo { width: 340px; }
-  .demos, .actions, .parts { grid-template-columns: 1fr; }
-  .person { grid-template-columns: 1fr; }
-  .outcomes { columns: 1; }
-  .panel dl { grid-template-columns: 1fr; gap: .1rem; }
-  .panel dd { margin-bottom: .6rem; }
-}
-@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
